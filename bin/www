@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+var debug = require('debug')('couchNano');
+var app = require('../app');
+
+app.set('port', process.env.PORT || 3000);
+
+var server = app.listen(3000, function() {
+  process.stdout.write("Express server listening on port "+app.port+'\n');
+  debug('Express server listening on port ' + server.address().port);
+});

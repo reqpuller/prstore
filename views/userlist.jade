@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	a(href='/') Home
+		h1.
+		User List
+		ul
+			each user in userlist
+				li
+					form(method="POST", action="/view_contact")
+						a(href='/view_contact') #{user.phone}	
+						input(type="hidden" , name="phone", value="#{user.phone}")
+				

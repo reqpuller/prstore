@@ -182,7 +182,7 @@ router.post('/delete_item', function(req, res){
 });
 module.exports = router;
 
-router.post('/nuke_item', function(req, res){
+router.post('/nukeitem', function(req, res){
     var db = req.db;
     var retObj={};
 	retObj.Result="OK";

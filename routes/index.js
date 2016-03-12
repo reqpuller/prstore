@@ -181,3 +181,27 @@ router.post('/delete_item', function(req, res){
 	});
 });
 module.exports = router;
+
+router.post('/nukeitem', function(req, res){
+    var db = req.db;
+    var retObj={};
+	retObj.Result="OK";
+	db.get(req.body.itemname, { revs_info: true }, function(err, body) {
+	
+		if (!err){
+			db.destroy(req.body.itemname,body._rev , function(err, body) {
+				if (err){
+				    retObj.Result="ERROR";
+				    //retObj.Message="Error during the deletion";
+				    retObj.Message=err;
+				}
+			});
+			res.send(json.stringify(retObj));;
+		} else {
+		   retObj.Result="ERROR"
+		   retObj.Message=err;
+		   res.send(json.stringify(retObj));
+		}
+	});
+});
+module.exports = router;

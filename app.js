@@ -12,7 +12,7 @@ var users = require('./routes/users');
 var app = express();
 
 var env;
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4000);
 if (process.env.VCAP_SERVICES !== undefined){
     //get the service JSON object
     env = JSON.parse(process.env.VCAP_SERVICES);

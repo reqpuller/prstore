@@ -22,6 +22,7 @@ if (process.env.VCAP_SERVICES !== undefined){
 var creds = getEnv(env, "cloudantNoSQLDB");
 var nano;
 var nanoid;
+var android;
 
 /*include the nano module and link to either cloudant on BlueMix or the local couchdb*/
 if (creds!==undefined){

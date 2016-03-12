@@ -21,6 +21,7 @@ if (process.env.VCAP_SERVICES !== undefined){
 //if running on BlueMix get the credentials for the cloudant service
 var creds = getEnv(env, "cloudantNoSQLDB");
 var nano;
+var nanoid;
 
 /*include the nano module and link to either cloudant on BlueMix or the local couchdb*/
 if (creds!==undefined){
